@@ -1,0 +1,64 @@
+pipenv install django graphene-django django-graphql-jwt django-cors-headers
+pipenv install --dev autopep8
+pipenv shell
+django-admin startproject app
+cd app
+python manage.py migrate
+python manage.py runserver
+python manage.py startapp tracks
+
+tracks ky folder majaky model.py ma apny 
+tracks banay hain or ausky bad app ky folder ma jaky
+jo class model ma bani ha yani (Track) ausko settings.py
+ma INSTALLED_APP =['tracks'] is ma folder ka name likhna ha jo taraks
+folder ha
+or phir jin file ma kam kiya ausko save karky
+
+python manage.py makemigrations
+python manage.py migrate
+
+ab yahan sy django ky shell ma kam karingy
+
+python manage.py shell
+
+from tracks.models import Track
+Track.objects.create(title="Track 1",description="Track 1 description", url="https://track1.com")
+Track.objects.create(title="Track 2",description="Track 2 description", url="https://track2.com")
+exit()
+or phir app folder ma jaky settings.py INSTALLED_APP=['graphene_django']
+or ya bi
+GRAPHENE = {
+    'SCHEMA': 'app.schema.schema'
+}
+or tracks ky folder ma jaky schema.py banani ha
+or phir app ky folder majaky schema.py file banani ha 
+or jo kuch tracks ky schema ma likha ausko app ky schema ma define karna ha
+or ausky bad urls.py app ky folder ma jana ha
+
+adding mutation and creating new tracks
+
+tracks folder ma schema.py ma jaky createTrack
+phir app ma jaky ek mutation ki class banani ha
+creating new user
+phir app ma jaky user ky folder ko bana ha or file schema.py ki file
+phir app ky folder ma jaky user.schema define karna ha
+
+Querying users by ID
+users ky folder majaky schema.py ma class Query add karni hain
+or phir app ky folder majaky Query ko enable karna ha
+
+User Authentication with Django-GraphQL-JWT
+is library ko install karna ha
+or settings.py ma jaky Django-GraphQL-JWT github ky page
+configuration add karni ha or app ky folder schema.py import graphql-jwt 
+ko import karna ha phir users ky folder majaky schema.py ma ek field addd karni ha
+
+Authorization Headers to Get Current Auth User
+install Insomnia just like postman for grapgql
+or Query define karni ha
+or phir models.py ma jaky posted_by define karna ha
+cd app
+python manage.py makemigrations
+python manage.py migrate
+
+phir tracks ky folder ma jaky schema.py posted_by ka user define karna ha
